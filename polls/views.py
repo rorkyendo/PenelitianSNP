@@ -1,8 +1,8 @@
+from __future__ import division
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from __future__ import division
 
 import pandas as pd
 import csv
