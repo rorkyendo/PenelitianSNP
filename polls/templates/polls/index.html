@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    {% load static %}
+
+    {# Load the tag library #}
+    {% load bootstrap3 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center">SNP QUALITY CONTROL APPLICATION <br/>FOR INDONESIAN RICE GENOME</h2>
+        <hr/>
+        <form action="{% url 'convert' %}" method="post" class="form-horizontal" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="apps_name">Upload file</label>
+                <div class="col-md-10">
+                  <input type="file" name="csv_file" class="form-control" accept=".csv">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-6 control-label" for="mafthreshold">Minor Allele Frequency Thresholds</label>
+                <div class="col-md-2">
+                  <input type="number" name="mafthreshold" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-6 control-label" for="mrthreshold">Missing Rate Thresholds</label>
+                <div class="col-md-2">
+                  <input type="number" name="mrthreshold" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-6 control-label" for="apps_name">Hardy - Weinberg Equilibrium Thresholds</label>
+                <div class="col-md-2">
+                  <input type="number" name="hwethreshold" class="form-control" >
+                </div>
+            </div>
+              <button type="submit" class="btn btn-success btn-md pull-right">Process</button>
+          </div>
+      </div>
+      </div>
+      </form>
+      </div>
+    </div>
+    <script src="{%static 'js/jquery.js'%}"></script>
+  </body>
+</html>
