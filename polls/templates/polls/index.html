@@ -22,29 +22,34 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="apps_name">Upload file</label>
                 <div class="col-md-10">
-                  <input type="file" name="csv_file" class="form-control" accept=".csv">
+                  <input type="file" name="csv_file" class="form-control" accept=".csv" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-6 control-label" for="mafthreshold">Minor Allele Frequency Thresholds</label>
                 <div class="col-md-2">
-                  <input type="number" name="mafthreshold" class="form-control" step="any">
+                  <input type="number" name="mafthreshold" class="form-control" step="any" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-6 control-label" for="mrthreshold">Missing Rate Thresholds</label>
                 <div class="col-md-2">
-                  <input type="number" name="mrthreshold" class="form-control" step="any">
+                  <input type="number" name="mrthreshold" class="form-control" step="any" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-6 control-label" for="apps_name">Hardy - Weinberg Equilibrium Thresholds</label>
                 <div class="col-md-2">
-                  <input type="number" name="hwethreshold" class="form-control" step="any">
+                  <input type="number" name="hwethreshold" class="form-control" step="any" required>
                 </div>
             </div>
               <button type="submit" class="btn btn-success btn-md pull-right">Process</button>
           </div>
+          {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success">{{ message }} <a href="{%static '/datasnp/snp_encoded.csv'%}">Download disini</a></div>
+          {% endfor %}
+          {% endif %}
       </div>
       </div>
       </form>
