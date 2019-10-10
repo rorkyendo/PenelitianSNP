@@ -6,16 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{title}}</title>
     {% load static %}
-
-    {# Load the tag library #}
-    {% load bootstrap3 %}
-
-    {# Load CSS and JavaScript #}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-
-    {# Display django.contrib.messages as Bootstrap alerts #}
-    {% bootstrap_messages %}
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css'%}">
+    <script src="{%static 'js/jquery.js'%}"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
   </head>
   <body>
     <div class="container">
@@ -57,6 +50,5 @@
       </form>
       </div>
     </div>
-    <script src="{%static 'js/jquery.js'%}"></script>
   </body>
 </html>

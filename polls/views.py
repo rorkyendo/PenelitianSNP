@@ -32,6 +32,6 @@ def convert(request):
             filename = fs.save(file.name, file)
             file_url = fs.url(filename)
 
-            messages.success(request, 'Data berhasil diupload.')
+            messages.success(request, 'Data berhasil diupload '+file_url)
 
             return HttpResponseRedirect(reverse('index'))
