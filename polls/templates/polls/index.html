@@ -14,6 +14,9 @@
     <div class="container">
       <div class="row">
         <h2 class="text-center">SNP QUALITY CONTROL APPLICATION <br/>FOR INDONESIAN RICE GENOME</h2>
+        <p class="text-center">
+          This tool is used to guarantee the quality of SNP data used in the association mapping process. The procedure applied are calculating the Missing Rate, calculating Minor Allele Frequency and calculating Hardy-Weinberg Equilibrum. The end result of this process is the SNP encoded in numerical form, which is 0 to represent Dominant Homozygous, 1 for Heterozygous and 2 for Homozygous Recessive.
+        </p>
         <hr/>
         <form action="{% url 'convert' %}" method="post" class="form-horizontal" enctype="multipart/form-data">
       {% csrf_token %}
@@ -26,19 +29,19 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-6 control-label" for="mafthreshold">Minor Allele Frequency Thresholds</label>
+                <label class="col-md-6 control-label" for="mafthreshold">Minor Allele Frequency Thresholds, Less Than</label>
                 <div class="col-md-2">
                   <input type="number" name="mafthreshold" class="form-control" step="any" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-6 control-label" for="mrthreshold">Missing Rate Thresholds</label>
+                <label class="col-md-6 control-label" for="mrthreshold">Missing Rate Thresholds, More Than</label>
                 <div class="col-md-2">
                   <input type="number" name="mrthreshold" class="form-control" step="any" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-6 control-label" for="apps_name">Hardy - Weinberg Equilibrium Thresholds</label>
+                <label class="col-md-6 control-label" for="apps_name">Hardy - Weinberg Equilibrium Thresholds, Less Than</label>
                 <div class="col-md-2">
                   <input type="number" name="hwethreshold" class="form-control" step="any" required>
                 </div>
@@ -51,6 +54,8 @@
           {% endfor %}
           {% endif %}
       </div>
+      <hr/>
+      <p class="text-center">FAKULTAS ILMU KOMPUTER DAN TEKNOLOGI INFORMASI USU - 2019</p>
       </div>
       </form>
       </div>
